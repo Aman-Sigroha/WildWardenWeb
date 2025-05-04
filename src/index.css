@@ -1,0 +1,168 @@
+:root {
+  --radar-primary: #4338ca;
+  --radar-secondary: #818cf8;
+  --radar-accent: #c7d2fe;
+  --radar-text: #f8fafc;
+  --radar-background: #0f172a;
+
+  --rescue-primary: #b91c1c;
+  --rescue-secondary: #ef4444;
+  --rescue-accent: #fca5a5;
+  --rescue-text: #f8fafc;
+  --rescue-background: #450a0a;
+  
+  --tech-primary: #2563eb;
+  --tech-secondary: #10b981;
+  --tech-accent: #60a5fa;
+  --tech-text: #f8fafc;
+  --tech-background: #064e3b;
+
+  --dark-background: #0f172a;
+  --dark-text: #f8fafc;
+  --light-background: #f8fafc;
+  --light-text: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.1;
+}
+
+/* Theme Classes */
+.theme-radar {
+  --primary-color: var(--radar-primary);
+  --secondary-color: var(--radar-secondary);
+  --accent-color: var(--radar-accent);
+  --text-color: var(--radar-text);
+  background-color: var(--radar-background);
+  color: var(--radar-text);
+}
+
+.theme-rescue {
+  --primary-color: var(--rescue-primary);
+  --secondary-color: var(--rescue-secondary);
+  --accent-color: var(--rescue-accent);
+  --text-color: var(--rescue-text);
+  background-color: var(--rescue-background);
+  color: var(--rescue-text);
+}
+
+.theme-tech {
+  --primary-color: var(--tech-primary);
+  --secondary-color: var(--tech-secondary);
+  --accent-color: var(--tech-accent);
+  --text-color: var(--tech-text);
+  background-color: var(--tech-background);
+  color: var(--tech-text);
+}
+
+/* Leaflet map styles fix */
+.leaflet-container {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-control-container .leaflet-control {
+  z-index: 500 !important;
+}
+
+/* Tech-inspired elements */
+.tech-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.tech-panel {
+  background-color: rgba(96, 165, 250, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 1rem;
+}
+
+.tech-text {
+  font-family: 'Courier New', monospace;
+}
+
+.blinking {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pending-indicator {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.pending-indicator::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(245, 158, 11, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
